@@ -24,8 +24,8 @@ int main() {
     // Generate random arrays
     srand((unsigned int)time(0));
 
-    //for 1000 item
-    int n = 1000;
+    //for 10000 item
+    int n = 10000;
     arr_a = (int*)malloc(n * sizeof(int));
     if (arr_a == NULL) {
         printf("Failed to memoral allocation(malloc)\n");
@@ -35,10 +35,10 @@ int main() {
     for (i = 0; i < n; i++) {
         arr_a[i] = rand() % 9999 + 1;
     }
-    bubbleSort(arr_a, 1000);
+    bubbleSort(arr_a, 10000);
 
-    printf("Sorted array of 1000 integers: \n");
-    for (i = 0; i < 1000; i++) {
+    printf("Sorted array of 10000 integers: \n");
+    for (i = 0; i < 10000; i++) {
         printf("%d\t ", arr_a[i]);
     }
     printf("\n---------------\n");
@@ -50,8 +50,8 @@ int main() {
     printf("First Sorting completed at: %lf second\n", firstTimeSpent);
     printf("---------------\n");
 
-    //for 10000 item
-    n = 10000;
+    //for 100000 item
+    n = 100000;
     arr_b = (int*)malloc(n * sizeof(int)); 
     if (arr_b == NULL) {
         printf("Failed to memoral allocation(malloc)\n");
@@ -62,10 +62,10 @@ int main() {
         arr_b[i] = rand() % 9999 + 1;
     }
 
-    bubbleSort(arr_b, 10000);
+    bubbleSort(arr_b, 100000);
 
-    printf("\nSorted array of 10000 integers: \n");
-    for (i = 0; i < 10000; i++) {
+    printf("\nSorted array of 100000 integers: \n");
+    for (i = 0; i < 100000; i++) {
         printf("%d\t ", arr_b[i]);
     }
     printf("\n----------------\n");
@@ -78,8 +78,8 @@ int main() {
     printf("---------------\n");
 
 
-    //for 100000 item
-    n = 100000; 
+    //for 1000000 item
+    n = 1000000; 
     arr_c = (int*)malloc(n * sizeof(int)); 
     if (arr_c == NULL) {
         printf("Failed to memoral allocation(malloc)\n");
@@ -90,10 +90,10 @@ int main() {
         arr_c[i] = rand() % 9999 + 1;
     }
 
-    bubbleSort(arr_c, 100000);
+    bubbleSort(arr_c, 1000000);
 
-    printf("\nSorted array of 100000 integers: \n");
-    for (i = 0; i < 100000; i++) {
+    printf("\nSorted array of 1000000 integers: \n");
+    for (i = 0; i < 1000000; i++) {
         printf("%d\t ", arr_c[i]);
     }
     printf("\n----------------\n");
