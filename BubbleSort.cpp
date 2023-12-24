@@ -16,98 +16,103 @@ void bubbleSort(int arr[], int n) {
 }
 
 int main() {
-    clock_t codeStart,codeEnd, firstArrayS,firstArrayF, secondArrayS,secondArrayF, thirdArrayS,thirdArrayF;
+    //For time calculating
+    clock_t codeStart,codeEnd, firstArrayS,firstArrayE, secondArrayS,secondArrayE, thirdArrayS,thirdArrayE;
     codeStart= clock();
+    //Array decleration
     int i;
     int *arr_a, *arr_b, *arr_c;
 
-    // Generate random arrays
+    // Generate randoms
     srand((unsigned int)time(0));
 
     //for 10000 item
     int n = 10000;
-    arr_a = (int*)malloc(n * sizeof(int));
+    arr_a = (int*)malloc(n * sizeof(int));//To avoid memory warnings
     if (arr_a == NULL) {
         printf("Failed to memoral allocation(malloc)\n");
         return -1;
     }
-    firstArrayS = clock();
+    firstArrayS = clock();//First array time starts 
+    //Inserting random numbers to first array
     for (i = 0; i < n; i++) {
         arr_a[i] = rand() % 9999 + 1;
     }
     bubbleSort(arr_a, 10000);
-
+    //Printing first sorted array
     printf("Sorted array of 10000 integers: \n");
     for (i = 0; i < 10000; i++) {
         printf("%d\t ", arr_a[i]);
     }
     printf("\n---------------\n");
-    firstArrayF = clock();
+    firstArrayE = clock();//First array time ends
     
-    free(arr_a);
+    free(arr_a);//To avoid memory warnings
 
-    double firstTimeSpent = (double)(firstArrayF - firstArrayS ) / CLOCKS_PER_SEC;
+    double firstTimeSpent = (double)(firstArrayE - firstArrayS ) / CLOCKS_PER_SEC;//Calculating how much time spent
     printf("First Sorting completed at: %lf second\n", firstTimeSpent);
     printf("---------------\n");
 
     //for 100000 item
     n = 100000;
-    arr_b = (int*)malloc(n * sizeof(int)); 
+    arr_b = (int*)malloc(n * sizeof(int)); //To avoid memory warnings
     if (arr_b == NULL) {
         printf("Failed to memoral allocation(malloc)\n");
         return -1;
     }
-    secondArrayS = clock();
+    secondArrayS = clock();//Second array time starts 
+    //Inserting random numbers to second array
     for (i = 0; i < n; i++) {
         arr_b[i] = rand() % 9999 + 1;
     }
 
     bubbleSort(arr_b, 100000);
-
+    //Printing second sorted array
     printf("\nSorted array of 100000 integers: \n");
     for (i = 0; i < 100000; i++) {
         printf("%d\t ", arr_b[i]);
     }
     printf("\n----------------\n");
-    secondArrayF = clock();
+    secondArrayE = clock();//Second array time ends
 
-    free(arr_b);
+    free(arr_b);//To avoid memory warnings
 
-    double secondTimeSpent = (double)(secondArrayF - secondArrayS) / CLOCKS_PER_SEC;
+    double secondTimeSpent = (double)(secondArrayE - secondArrayS) / CLOCKS_PER_SEC;//Calculating how much time spent
     printf("Second Sorting completed at: %lf second\n", secondTimeSpent);
     printf("---------------\n");
 
 
     //for 1000000 item
     n = 1000000; 
-    arr_c = (int*)malloc(n * sizeof(int)); 
+    arr_c = (int*)malloc(n * sizeof(int));//To avoid memory warnings 
     if (arr_c == NULL) {
         printf("Failed to memoral allocation(malloc)\n");
         return -1;
     }
-    thirdArrayS = clock();
+    thirdArrayS = clock();//Third array time starts 
+    //Inserting random numbers to third array
     for (i = 0; i < n; i++) {
         arr_c[i] = rand() % 9999 + 1;
     }
 
     bubbleSort(arr_c, 1000000);
-
+    //Printing third sorted array
     printf("\nSorted array of 1000000 integers: \n");
     for (i = 0; i < 1000000; i++) {
         printf("%d\t ", arr_c[i]);
     }
     printf("\n----------------\n");
-    thirdArrayF = clock();
+    thirdArrayE = clock();//Third array time ends
     
-    free(arr_c);
+    free(arr_c);//To avoid memory warning
 
-    double thirdTimeSpent = (double)(thirdArrayF - thirdArrayS) / CLOCKS_PER_SEC;
+    double thirdTimeSpent = (double)(thirdArrayE - thirdArrayS) / CLOCKS_PER_SEC;//Calculating how much time spent
     printf("Third Sorting completed at: %lf second\n", thirdTimeSpent);
     printf("---------------\n");
 
     codeEnd = clock();
 
-    double timeSpent = (double)(codeEnd - codeStart) / CLOCKS_PER_SEC;
+    double timeSpent = (double)(codeEnd - codeStart) / CLOCKS_PER_SEC;//Calculating how much time spent for whole code
     printf("Sorting completed at: %lf second\n", timeSpent);
 
     return 0;
