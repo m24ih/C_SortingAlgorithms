@@ -30,6 +30,14 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
+void printSort(int *arr,int x) {
+    printf("Sorted array of %d integers: \n",x);
+    for (int i = 0; i < x; i++) {
+        printf("%d\t ", arr[i]);
+    }
+    printf("\n---------------\n");
+}
+
 int main() {
     //For time calculating
     clock_t codeStart, codeEnd, firstArrayS, firstArrayE, secondArrayS, secondArrayE, thirdArrayS, thirdArrayE;
@@ -55,12 +63,7 @@ int main() {
         arr_a[i] = rand() % 9999 + 1;
     }
     quickSort(arr_a, 0,9999);
-    //Printing first sorted array
-    printf("Sorted array of 10000 integers: \n");
-    for (i = 0; i < 10000; i++) {
-        printf("%d\t ", arr_a[i]);
-    }
-    printf("\n---------------\n");
+    printSort(arr_a,10000);//Printing first sorted array
     firstArrayE = clock();//First array time ends
     free(arr_a);//To avoid memory warnings
     double firstTimeSpent = (double)(firstArrayE - firstArrayS) / CLOCKS_PER_SEC;//Calculating how much time spent
@@ -81,11 +84,7 @@ int main() {
     }
 
     quickSort(arr_b, 0,99999);
-    //Printing second sorted array
-    printf("Sorted array of 100000 integers: \n");
-    for (i = 0; i < 100000; i++) {
-        printf("%d\t ", arr_b[i]);
-    }
+    printSort(arr_b, 100000);//Printing second sorted array
     printf("\n----------------\n");
     secondArrayE = clock();//Second array time ends
     free(arr_b);//To avoid memory warnings
@@ -108,12 +107,7 @@ int main() {
     }
 
     quickSort(arr_c, 0,999999);
-    //Printing third sorted array
-    printf("Sorted array of 1000000 integers: \n");
-    for (i = 0; i < 1000000; i++) {
-        printf("%d\t ", arr_c[i]);
-    }
-    printf("\n----------------\n");
+    printSort(arr_c,1000000);//Printing third sorted array
     thirdArrayE = clock();//Third array time ends
     free(arr_c);//To avoid memory warning
     double thirdTimeSpent = (double)(thirdArrayE - thirdArrayS) / CLOCKS_PER_SEC;//Calculating how much time spent
